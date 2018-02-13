@@ -24,7 +24,7 @@ export class VisionPage {
   result$: Observable<any>;
 
   loading: Loading;
-  image: string;
+  image: string = '';
 
   constructor(private storage: AngularFireStorage, 
               private afs: AngularFirestore, 

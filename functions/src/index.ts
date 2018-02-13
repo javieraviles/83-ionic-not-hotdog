@@ -10,7 +10,7 @@ import * as vision from '@google-cloud/vision';
 const visionClient =  new vision.ImageAnnotatorClient();
 
 // Dedicated bucket for cloud function invocation
-const bucketName = 'firestarter-96e46-vision';
+const bucketName = 'cloud-vision-c0b23.appspot.com';
 
 export const imageTagger = functions.storage
     

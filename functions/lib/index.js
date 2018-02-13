@@ -15,7 +15,7 @@ admin.initializeApp(functions.config().firebase);
 // Cloud Vision
 const vision = require("@google-cloud/vision");
 const visionClient = new vision.ImageAnnotatorClient();
-const bucketName = 'firestarter-96e46-vision';
+const bucketName = 'cloud-vision-c0b23.appspot.com';
 exports.imageTagger = functions.storage
     .bucket(bucketName)
     .object()

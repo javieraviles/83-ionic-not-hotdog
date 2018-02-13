@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>vision</ion-title>
+    <ion-title>A very machine learning APP</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,35 +18,22 @@
   <ion-row>
 
     <ion-col col-12 text-center>
-
+      <p>With this APP you will be able to perform a decentralized deep neuronal machine learning blockchain-cloud-based image analysis</p>
+      
       <button ion-button icon-start (tap)="captureAndUpload()">
         <ion-icon name="camera"></ion-icon>
-        Activate Cloud Vision
+       
       </button>
 
     </ion-col>
 
     <ion-col col-12>
-        <img width="100%" height="auto" [src]="image">
+        <img *ngIf="image.length>0" width="100%" height="auto" [src]="image">
     </ion-col>
 
     <ion-col *ngIf="result$ | async as result">
 
-      <h3>Hotdog?</h3>
-
-      <button *ngIf="result.hotdog"
-                color="secondary"ion-button full>
-
-        Hotdog!!!
-      </button>
-
-      <button *ngIf="!result.hotdog"
-                color="danger"ion-button full>
-      
-        Not Hotdog :)
-      </button>
-
-      <h3>Labels</h3>
+      <h3>What's there?</h3>
 
       <ion-chip color="secondary"
               *ngFor="let label of result.labels">
