@@ -34,12 +34,39 @@
 
       <h3>What's there?</h3>
 
-      <ion-chip color="secondary"
-              *ngFor="let label of result.labels">
-              
-              <ion-label>{{ label }}</ion-label>
-            
+      <ion-chip color="secondary" *ngFor="let label of result.labels">    
+        <ion-label>{{ label }}</ion-label>
       </ion-chip>
+
+      <ion-card color="primary" *ngIf="result.face.length>0">
+
+        <ion-card-header>
+          There is a face in the picture!
+        </ion-card-header>
+      
+        <ion-card-content *ngFor="let face of result.face">
+          Anger: {{face.angerLikelihood}}<br>
+          Blurred: {{face.blurredLikelihood}}<br>
+          Headwear: {{face.headwearLikelihood}}<br>
+          Joy: {{face.joyLikelihood}}<br>
+          Sorrow: {{face.sorrowLikelihood}}<br>
+          Surprise: {{face.surpriseLikelihood}}<br>
+          Exposed: {{face.underExposedLikelihood}}<br>
+        </ion-card-content>
+      
+      </ion-card>
+
+      <ion-card color="dark" *ngIf="result.text.length>0">
+
+        <ion-card-header>
+          There is a piece of text in the picture!
+        </ion-card-header>
+      
+        <ion-card-content>
+          <pre>{{result.text}}</pre>
+        </ion-card-content>
+      
+      </ion-card>
         
     </ion-col>
   </ion-row>

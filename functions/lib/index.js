@@ -27,10 +27,16 @@ exports.imageTagger = functions.storage
         const docId = filePath.split('.jpg')[0];
         console.log(2, docId);
         const docRef = admin.firestore().collection('photos').doc(docId);
-        const results = yield visionClient.labelDetection(imageUri);
-        const labels = results[0].labelAnnotations.map(obj => obj.description);
-        console.log(3, results);
-        return docRef.set({ labels });
+        const labelsResults = yield visionClient.labelDetection(imageUri);
+        const faceResults = yield visionClient.faceDetection(imageUri);
+        const textResults = yield visionClient.textDetection(imageUri);
+        const labels = labelsResults[0].labelAnnotations.map(obj => obj.description);
+        const text = textResults[0].textAnnotations.map(obj => obj.description);
+        const face = faceResults[0].faceAnnotations;
+        console.log(3, labels);
+        console.log(4, text);
+        console.log(5, face);
+        return docRef.set({ labels , face, text });
     }
     catch (err) {
         console.log(err);
